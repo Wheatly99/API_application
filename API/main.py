@@ -17,8 +17,8 @@ fill_mask = pipeline("fill-mask", model="blinoff/roberta-base-russian-v0", token
 def root():
     return {'message': 'Software engineering project'}
 
-# Вызывается функция при загрузки текста на сервер
-# Необходимо доработать,чтобы выводилось больше вариантов (сейчас выводится только один)
+# Вызывается функция при загрузке текста на сервер
+# Необходимо доработать, чтобы выводилось больше вариантов (сейчас выводится только один)
 @app.post('/predict/')
 def predict(item: Item):
     return fill_mask(item.text)[0]
