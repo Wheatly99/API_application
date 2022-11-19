@@ -7,4 +7,4 @@
 - Markin Mikhail, РИМ-120907;
 - Zenkov Miroslav, РИМ-120906;
 - Solomein Aleksandr, РИМ-120907;
-- Kolominskii Viktor, РИМ-120907.
+- Kolomenskii Viktor, РИМ-120907.
