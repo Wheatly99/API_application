@@ -1,3 +1,4 @@
+[![Python application](https://github.com/Wheatly99/Project_SE/actions/workflows/python-app.yml/badge.svg)](https://github.com/Wheatly99/Project_SE/actions/workflows/python-app.yml)
 ## Software Engineering Project
 *Hello, this repository is for project implementation:*   
 - Creating a Web application using machine learning;
