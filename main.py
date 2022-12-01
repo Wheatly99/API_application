@@ -9,8 +9,7 @@ class Item(BaseModel):
 
 # Создание объектов
 app = FastAPI()
-tokenizer = RobertaTokenizerFast.from_pretrained('blinoff/roberta-base-russian-v0', max_len=512)
-fill_mask = pipeline("fill-mask", model="blinoff/roberta-base-russian-v0", tokenizer=tokenizer)
+fill_mask = pipeline("fill-mask", model="sberbank-ai/ruBert-base")
 
 # Вызывается функция при обращении к корню сервера
 @app.get('/')
@@ -21,4 +20,6 @@ def root():
 # Необходимо доработать, чтобы выводилось больше вариантов (сейчас выводится только один)
 @app.post('/predict/')
 def predict(item: Item):
-    return fill_mask(item.text)[0]
+    pred = fill_mask(item.text)
+    diction = {idx+1 : value for idx, value in enumerate(pred)}
+    return diction
