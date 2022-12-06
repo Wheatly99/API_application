@@ -1,4 +1,8 @@
 fastapi
 uvicorn
+pydantic
+json
+requests
+streamlit
 transformers[torch]
 httpx
