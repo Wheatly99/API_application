@@ -17,9 +17,8 @@ def root():
     return {'message': 'Software engineering project'}
 
 # Вызывается функция при загрузке текста на сервер
-# Необходимо доработать, чтобы выводилось больше вариантов (сейчас выводится только один)
-@app.post('/predict/')
+@app.post('/predict')
 def predict(item: Item):
     pred = fill_mask(item.text)
-    diction = {idx+1 : value for idx, value in enumerate(pred)}
+    diction = {idx+1: value for idx, value in enumerate(pred)}
     return diction
