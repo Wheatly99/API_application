@@ -8,6 +8,14 @@
 - Solomein Aleksandr, РИМ-120907;
 - Kolomenskii Viktor, РИМ-120907.
 
-Comments:
-- Запуск - uvicorn main:app;
-- Необходимо модернизировать файл test_main.py - сейчас проверяет только обращение к серверу.
+**Comments:**  
+
+To run on Yandex Cloud, two virtual machines are created: one runs a server with an API application, the other runs a Web application.   
+
+The machine learning model is located on a virtual machine with an API application. When entering a string from the Web interface, an API server is accessed, which predicts the missing word and returns the result to the Web interface.
+
+**How to run?**
+
+For a VM with an API application: uvicorn main:app --host 0.0.0.0   
+For a VM with a Web application: streamlit rum web_with_api.py [ip_api] [port_api]   
+*(P.S. ip_api and port_api - optional parameters. Their default values are: ip_api = 127.0.0.1, port_api = 8000)*
