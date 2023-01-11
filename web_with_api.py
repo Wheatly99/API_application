@@ -7,10 +7,11 @@ import argparse
 st.title('Заполнение пропусков в словах')
 st.text('Это приложение реализовано в рамках "Software engineering project"')
 
-text_input = st.text_input(label='Введите предложение, замените одно слово на [MASK]'
-                                 'и нажмите кнопку, или просто нажмите enter',
-                           value='Введите предложение, замените одно слово на [MASK] и нажмите кнопку')
+text_input = st.text_input(label='Введите предложение, замените одно слово на ??? '
+                                 ' и нажмите кнопку, или просто нажмите enter',
+                           value='Введите предложение, замените одно слово на ??? и нажмите кнопку')
 
+text_input = text_input.replace('???', '[MASK]')
 
 def createParser():
     parser = argparse.ArgumentParser()
@@ -20,6 +21,7 @@ def createParser():
 
 
 def predict():
+    
     diction = {"text": text_input}
 
     parser = createParser()
@@ -35,5 +37,12 @@ def predict():
         formated = s.replace(predicted, f' **{predicted.replace(" ", "")}**')
         st.markdown(formated.capitalize())
 
+def proverka_vvoda():
+    if '[MASK]' in text_input:
+        predict()
+    else:
+        st.text('Замените слово на "???"!')
+        
 
-st.button(label='Тык!', on_click=predict())
+st.button(label='Тык!', on_click=proverka_vvoda())
+
