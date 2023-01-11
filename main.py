@@ -1,6 +1,6 @@
 # Импорт библиотек
 from fastapi import FastAPI
-from transformers import pipeline, RobertaTokenizerFast
+from transformers import pipeline
 from pydantic import BaseModel
 
 # Создание объекта класса Item по переданным параметрам в теле HTTP
