@@ -19,9 +19,7 @@ def createParser():
     parser.add_argument('port_api', default='8000')
     return parser
 
-
 def predict():
-    
     diction = {"text": text_input}
 
     parser = createParser()
@@ -37,12 +35,11 @@ def predict():
         formated = s.replace(predicted, f' **{predicted.replace(" ", "")}**')
         st.markdown(formated.capitalize())
 
-def proverka_vvoda():
+def input_check():
     if '[MASK]' in text_input:
         predict()
     else:
         st.text('Замените слово на "???"!')
         
 
-st.button(label='Тык!', on_click=proverka_vvoda())
-
+st.button(label='Тык!', on_click=input_check())
